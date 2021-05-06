@@ -6,6 +6,7 @@ class Thermostat {
     this.MINIMUM_TEMPERATURE = 10;
     this.MAXIMUM_TEMPERATURE = 25;
     this.POWER_OFF_MAX_TEMP = 32;
+    this.RESET_TEMP = 20;
     this.temperature = 20;
     this.powerSavingMode = true;
   };
@@ -45,8 +46,11 @@ class Thermostat {
   switchOff() {
     return this.powerSavingMode = false;
   }
-
   switchOn() {
     return this.powerSavingMode = true;
+  }
+
+  reset() {
+    return this.temperature = this.RESET_TEMP ;
   }
 };
