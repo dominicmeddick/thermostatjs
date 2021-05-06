@@ -30,4 +30,26 @@ describe('Thermostat', () => {
   it('has a power saving mode', () => {
     expect(thermostat.powerSavingMode).toEqual(true);
   })
+  it('has a maximum temperature of 25', () => {
+    for(let i = 0; i <= 7; i++ ) {
+      thermostat.up();
+    }
+    expect(thermostat.temperature).toEqual(25);
+  });
+  it('can turn power saving mode off', () => {
+    thermostat.switchOff();
+    expect(thermostat.powerSavingMode).toEqual(false);
+  })
+  it('can turn power saving mode off', () => {
+    thermostat.switchOff();
+    thermostat.switchOn();
+    expect(thermostat.powerSavingMode).toEqual(true);
+  })
+  it('has a maximum temperature of 32 when the power is off', () => {
+    thermostat.switchOff();
+    for(let i = 0; i <= 20; i++ ) {
+      thermostat.up();
+    }
+    expect(thermostat.temperature).toEqual(32)
+  });
 });
